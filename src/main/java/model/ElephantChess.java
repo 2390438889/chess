@@ -5,6 +5,7 @@ import exception.PlayChessException;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,30 @@ public class ElephantChess extends Chess {
     }
 
     @Override
-    public boolean playChess(Point start, Point end){
-        return true;
+    public List<Point> canPoint(Point start) {
+
+        ChessPices[][] chesspices = chessBoard.getChessPices();
+
+        List<Point> points = new ArrayList<>();
+
+        int[] sign = new int[]{2,-2};
+
+        int x = 0;
+
+        int y = 0;
+
+        for (int i = 0; i < sign.length; i++) {
+            for (int j = 0; j < sign.length; j++) {
+                x = start.getX() + sign[i];
+                y = start.getY() + sign[j];
+                //判断中心没有棋子,并且坐标在棋盘中,没有过河
+                if (!chessBoard.overArea(x,y) && chesspices[x - sign[i]/2][y-sign[j]/2] == ChessBoard.NONE && !checkRiverOver(x)){
+                    points.add(new Point(x,y));
+                }
+            }
+        }
+
+
+        return points;
     }
 }

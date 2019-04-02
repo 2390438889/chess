@@ -5,6 +5,7 @@ import exception.PlayChessException;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +23,44 @@ public class HorseChess extends Chess {
         super(name, bufferedImage, initPoints);
     }
 
+
     @Override
-    public boolean playChess(Point start, Point end){
-        return true;
+    public List<Point> canPoint(Point start) {
+
+        ChessPices[][] chessPices = chessBoard.getChessPices();
+
+        List<Point> points = new ArrayList<>();
+
+        int x=0,y=0;
+
+        int[] sign = new int[]{1,2,-1,-2};
+
+        for (int i = 0; i < sign.length; i++) {
+            for (int j = 0; j < sign.length; j++) {
+                if (sign[i]!=sign[j] && sign[i]!=-sign[j]){
+                    x = start.getX();
+                    y = start.getY();
+                    if (Math.abs(sign[i]) ==1){
+                        if (sign[j] > 0){
+                            y += 1;
+                        }else{
+                            y += -1;
+                        }
+                    }else{
+                        if (sign[i] > 0){
+                            x += 1;
+                        }else{
+                            x += -1;
+                        }
+                    }
+                    if (!chessBoard.overArea(start.getX() + sign[i],start.getY() +sign[j]) && chessPices[x][y] == ChessBoard.NONE){
+                        points.add(new Point(start.getX() + sign[i],start.getY() +sign[j]));
+                    }
+
+                }
+            }
+        }
+
+        return points;
     }
 }

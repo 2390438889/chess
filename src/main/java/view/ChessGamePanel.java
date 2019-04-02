@@ -6,6 +6,8 @@ import model.Point;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -18,16 +20,27 @@ public class ChessGamePanel extends JPanel {
 
     private ChessBoard chessBoard;
 
+    private JButton jButton;
+
     public ChessGamePanel(ChessBoard chessBoard) {
         this.chessBoard = chessBoard;
         //设置大小
-        this.setSize(800,900);
+        this.setSize(800, 900);
 
         //设置可见
         this.setVisible(true);
 
+        //添加组件
+        addComponent();
+
         //添加监听器
         addListener();
+
+    }
+
+    private void addComponent() {
+        jButton = new JButton("悔棋");
+        this.add(jButton);
     }
 
     public void init(){
@@ -37,6 +50,15 @@ public class ChessGamePanel extends JPanel {
     }
 
     private void addListener(){
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (chessBoard.withDraw()){
+                    JOptionPane.showMessageDialog(null,"已到初始状态,无法撤回");
+                }
+                repaint();
+            }
+        });
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -96,15 +118,7 @@ public class ChessGamePanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
 
-        if (chessBoard.getSuccessChessType() != ChessBoard.SUCCESS_NONE){
-            JOptionPane.showMessageDialog(null, chessBoard.getSuccessChessType() + "方胜利了");
-            int result = JOptionPane.showConfirmDialog(null,"开始新的游戏");
-            if (result == 0){
-                init();
-            }else{
-                System.exit(0);
-            }
-        }
+        g.drawString("当前"+chessBoard.getBoardOfChessPlayer()+"方下棋！",400,20);
 
         g.drawImage(chessBoard.getBufferedImage(), 45, 45, null);
         if (! chessBoard.NONE_POINT.equals(chessBoard.getNowPoint())){
@@ -118,6 +132,16 @@ public class ChessGamePanel extends JPanel {
                     Point point = transposeArray(i, j);
                     g.drawImage(chessPices[i][j].getChess().getBufferedImage(), point.getX(), point.getY(), null);
                 }
+            }
+        }
+
+        if (chessBoard.getSuccessChessType() != ChessBoard.SUCCESS_NONE){
+            JOptionPane.showMessageDialog(null, chessBoard.getSuccessChessType() + "方胜利了");
+            int result = JOptionPane.showConfirmDialog(null,"开始新的游戏");
+            if (result == 0){
+                init();
+            }else{
+                System.exit(0);
             }
         }
     }

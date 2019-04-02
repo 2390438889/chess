@@ -22,6 +22,8 @@ public abstract class Chess {
 
     protected List<Point> initPoints;
 
+    protected ChessBoard chessBoard;
+
     public Chess(String name, ChessType chessType, BufferedImage bufferedImage, List<Point> initPoints) {
         this.name = name;
         this.chessType = chessType;
@@ -67,6 +69,10 @@ public abstract class Chess {
         this.bufferedImage = bufferedImage;
     }
 
+    public void setChessBoard(ChessBoard chessBoard) {
+        this.chessBoard = chessBoard;
+    }
+
     /**
      * 走棋 将棋子放到某个坐标是否符合规则
      * @param start
@@ -74,6 +80,29 @@ public abstract class Chess {
      * @return
      * @throws PlayChessException
      */
-    public abstract boolean playChess(Point start,Point end);
+    public  boolean playChess(Point start,Point end){
+        return end.inList(canPoint(start));
+    }
+
+    /**
+     * 获取棋子下一步所有可能的地点
+     * @param start
+     * @return
+     */
+    public abstract List<Point> canPoint(Point start);
+
+    /**
+     * 判断是否过河
+     * @return
+     */
+    protected boolean checkRiverOver(int x){
+        if (chessType == ChessType.BLACK){
+            return x > 4;
+        }else{
+            return x < 5;
+        }
+    }
+
+
 
 }

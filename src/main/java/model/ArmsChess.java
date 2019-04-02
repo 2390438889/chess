@@ -5,6 +5,7 @@ import exception.PlayChessException;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,10 +24,25 @@ public class ArmsChess extends Chess {
     }
 
 
-    @Override
-    public boolean playChess(Point start, Point end){
-        return true;
+    public List<Point> canPoint(Point start){
+        List<Point> points;
+        int step = -1;
+        if (chessType == ChessType.BLACK){
+            step = 1;
+        }
+        //如果已经过河
+        if (checkRiverOver(start.getX())){
+            points = Arrays.asList(new Point(start.getX()+step,start.getY()),
+                    new Point(start.getX(),start.getY()+1),
+                    new Point(start.getX(),start.getY()-1));
+        }else{
+            points = Arrays.asList(new Point(start.getX()+step,start.getY()));
+        }
+
+        return points;
     }
+
+
 
 
 }

@@ -59,4 +59,13 @@ public class ChessPices {
     public void setPoint(Point point) {
         this.point = point;
     }
+
+    @Override
+    public String toString() {
+        return "ChessPices{" +
+                "live=" + live +
+                ", chess=" + chess +
+                ", point=" + point +
+                '}';
+    }
 }

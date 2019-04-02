@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 /**
  * @author Hearts
  * @date 2019/3/31
@@ -44,6 +46,10 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public boolean inList(List<Point> points){
+        return points.contains(this);
     }
 
     @Override
