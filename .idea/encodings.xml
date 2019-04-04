@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/base/chess/Chess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/core/ChessPices.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/enums/ChessType.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/exception/PlayChessException.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/ArmsChess.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/BlackChessFactory.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/BossChess.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/CannonChess.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/Chess.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/ChessFactory.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/ChessPices.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/ElephantChess.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/RedChessFactory.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/model/ScholarChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/ArmsChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/BossChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/CannonChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/ElephantChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/ScholarChess.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/factory/BlackChessFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/factory/ChessFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/chess/factory/RedChessFactory.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 package com.lujie.model;
 
-import model.ChessBoard;
+import core.ChessBoard;
 import org.junit.Test;
 import view.ChessGamePanel;
 

@@ -1,6 +1,10 @@
-package model;
+package core;
 
+import base.chess.Chess;
 import enums.ChessType;
+import model.chess.factory.BlackChessFactory;
+import model.chess.factory.ChessFactory;
+import model.chess.factory.RedChessFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;

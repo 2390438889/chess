@@ -1,11 +1,7 @@
-package model;
+package model.chess.factory;
 
-import enums.ChessType;
-import util.ImageUtil;
+import base.chess.Chess;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

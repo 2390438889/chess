@@ -1,4 +1,4 @@
-package model;
+package core;
 
 /**
  * @author Hearts

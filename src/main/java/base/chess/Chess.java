@@ -1,9 +1,10 @@
-package model;
+package base.chess;
 
 import enums.ChessType;
 import exception.PlayChessException;
+import core.ChessBoard;
+import core.Point;
 
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 

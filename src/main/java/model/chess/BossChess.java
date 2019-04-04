@@ -1,12 +1,13 @@
-package model;
+package model.chess;
 
+import base.chess.Chess;
 import enums.ChessType;
-import exception.PlayChessException;
+import core.ChessBoard;
+import core.ChessPices;
+import core.Point;
 
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

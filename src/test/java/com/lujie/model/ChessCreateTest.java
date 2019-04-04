@@ -1,15 +1,12 @@
 package com.lujie.model;
 
 import enums.ChessType;
-import model.ChessPices;
-import model.ChessPicesFactory;
+import core.ChessPices;
+import core.ChessPicesFactory;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * @author Hearts

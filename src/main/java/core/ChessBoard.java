@@ -1,11 +1,10 @@
-package model;
+package core;
 
 import enums.ChessType;
+import model.chess.BossChess;
 import util.ImageUtil;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -173,7 +172,7 @@ public class ChessBoard {
             ChessPices chess = chessPices[nowPoint.getX()][nowPoint.getY()];
 
             //判断该位置是否为本方棋子,选择该棋子为当前棋子
-            if (chessPices[x][y] == NONE || chessPices[x][y].getChess().chessType != boardOfChessPlayer){
+            if (chessPices[x][y] == NONE || chessPices[x][y].getChess().getChessType() != boardOfChessPlayer){
 
                 //如果符合走棋规则
                 if (chess.getChess().playChess(nowPoint,next)){
@@ -227,7 +226,7 @@ public class ChessBoard {
      * @param y
      * @return
      */
-    protected boolean overArea(int x ,int y){
+    public boolean overArea(int x, int y){
         ChessPices[][] chesspices = this.getChessPices();
         return x <0 || x>=chesspices.length || y < 0 || y >= chesspices[0].length;
     }

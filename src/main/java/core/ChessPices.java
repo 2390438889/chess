@@ -1,4 +1,6 @@
-package model;
+package core;
+
+import base.chess.Chess;
 
 /**
  * @author Hearts

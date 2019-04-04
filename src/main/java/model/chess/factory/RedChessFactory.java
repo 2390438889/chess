@@ -1,9 +1,13 @@
-package model;
+package model.chess.factory;
 
+import base.chess.Chess;
 import enums.ChessType;
+import model.chess.ElephantChess;
+import model.chess.HorseChess;
+import core.Point;
+import model.chess.*;
 import util.ImageUtil;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -1,8 +1,8 @@
 package view;
 
-import enums.ChessType;
-import model.*;
-import model.Point;
+import core.ChessBoard;
+import core.ChessPices;
+import core.Point;
 
 import javax.swing.*;
 import java.awt.*;

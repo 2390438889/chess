@@ -1,9 +1,9 @@
-package model;
+package model.chess;
 
+import base.chess.Chess;
 import enums.ChessType;
-import exception.PlayChessException;
+import core.Point;
 
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2019/3/31
  * @desc 象棋-士
  */
-public class ScholarChess extends Chess{
+public class ScholarChess extends Chess {
 
     public ScholarChess(String name, ChessType chessType, BufferedImage bufferedImage, List<Point> initPoints) {
         super(name, chessType, bufferedImage, initPoints);
