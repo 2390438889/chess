@@ -1,6 +1,7 @@
 package server;
 
 import base.server.Server;
+import thread.ServerThread;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -19,32 +20,54 @@ public class GameServer extends Server {
      */
     private Map<Integer,GameRoom> roomMap;
 
-    private User user;
+    private List<User> users;
+
+    private ServerOperator serverOperator;
+
+    private ArrayList<ServerThread> serverThreads;
 
 
 
     public GameServer() throws IOException {
+        this("server+"+Server.count++);
     }
 
     public GameServer(String name) throws IOException {
-        super(name);
+        this(name,new ServerSocket(8080));
     }
 
     public GameServer(String name, ServerSocket serverSocket) {
         super(name, serverSocket);
+        roomMap = new HashMap<>();
+        users = new ArrayList<>();
+        serverOperator = new ServerOperator(this);
+        serverThreads = new ArrayList<>();
     }
 
-    public void createRoom(int roomID){
 
-    }
 
     @Override
     public void socketHandler(Socket socket) {
-
+        try {
+            serverThreads.add(new ServerThread(socket,serverOperator.clone()));
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void closeHandler() {
+        //中断所有线程
+        for (ServerThread serverThread : serverThreads) {
+            serverThread.interrupt();
+        }
+    }
 
+    public Map<Integer, GameRoom> getRoomMap() {
+        return roomMap;
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 }

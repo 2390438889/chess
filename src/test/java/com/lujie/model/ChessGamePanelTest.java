@@ -19,7 +19,7 @@ public class ChessGamePanelTest {
         jFrame.setSize(200,200);
         jFrame.setLocationRelativeTo(null);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setContentPane(new ChessGamePanel(new ChessBoard()));
+        jFrame.setContentPane(new ChessGamePanel(new ChessBoard(),null));
         jFrame.setVisible(true);
     }
 
@@ -28,7 +28,7 @@ public class ChessGamePanelTest {
         jFrame.setSize(800,900);
         jFrame.setLocationRelativeTo(null);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setContentPane(new ChessGamePanel(new ChessBoard()));
+        jFrame.setContentPane(new ChessGamePanel(new ChessBoard(),null));
         jFrame.setVisible(true);
     }
 }

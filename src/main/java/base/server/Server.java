@@ -55,6 +55,7 @@ public abstract class Server {
     public void start(){
         //记录服务器开始运行的时间戳
         this.startTime = System.currentTimeMillis();
+        System.out.println(name +"服务器启动>>>");
         try {
             while (true){
                 Socket socket = serverSocket.accept();
@@ -85,6 +86,8 @@ public abstract class Server {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(name +"服务器关机>>>");
+
 
     }
 

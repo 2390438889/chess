@@ -3,6 +3,7 @@ package view;
 import core.ChessBoard;
 import core.ChessPices;
 import core.Point;
+import server.GameData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.Socket;
 
 /**
  * @author Hearts
@@ -22,7 +24,12 @@ public class ChessGamePanel extends JPanel {
 
     private JButton jButton;
 
-    public ChessGamePanel(ChessBoard chessBoard) {
+    private Socket socket;
+
+    public ChessGamePanel(ChessBoard chessBoard,Socket socket) {
+
+        this.socket = socket;
+
         this.chessBoard = chessBoard;
         //设置大小
         this.setSize(800, 900);
@@ -46,6 +53,15 @@ public class ChessGamePanel extends JPanel {
     public void init(){
         //初始化棋盘
         chessBoard.init();
+
+    }
+
+    public void exec(GameData gameData){
+        gameDataHandler(gameData);
+        repaint();
+    }
+
+    private void gameDataHandler(GameData gameData){
 
     }
 
